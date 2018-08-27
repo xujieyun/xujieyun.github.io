@@ -28,10 +28,12 @@
 <meta property="og:site_name" content="Jesse.xu">
 <meta property="og:description" content="sessionStorage 属性允许你访问一个 session Storage 对象。它与 localStorage 相似，不同之处在于 localStorage 里面存储的数据没有过期时间设置，而存储在 sessionStorage 里面的数据在页面会话结束时会被清除。页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。在新标签或窗口打开一个页面会初始化一个新的会话">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T17:13:09.586Z">
+<meta property="og:image" content="/2018/08/28/Storage/程序员择偶标准.JPG">
+<meta property="og:updated_time" content="2018-08-27T17:40:39.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Storage 进行页面缓存">
 <meta name="twitter:description" content="sessionStorage 属性允许你访问一个 session Storage 对象。它与 localStorage 相似，不同之处在于 localStorage 里面存储的数据没有过期时间设置，而存储在 sessionStorage 里面的数据在页面会话结束时会被清除。页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。在新标签或窗口打开一个页面会初始化一个新的会话">
+<meta name="twitter:image" content="/2018/08/28/Storage/程序员择偶标准.JPG">
     
         <link rel="alternate" type="application/atom+xml" title="Jesse.xu" href="/atom.xml">
     
@@ -189,7 +191,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>sessionStorage 属性允许你访问一个 session Storage 对象。它与 localStorage 相似，不同之处在于 localStorage 里面存储的数据没有过期时间设置，而存储在 sessionStorage 里面的数据在页面会话结束时会被清除。页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。在新标签或窗口打开一个页面会初始化一个新的会话，这点和 session cookies 的运行方式不同。<br>应该注意的是，无论是 localStorage 还是 sessionStorage 中保存的数据都仅限于该页面的协议。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 保存数据到sessionStorage</span><br><span class="line">sessionStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage获取数据</span><br><span class="line">var data = sessionStorage.getItem(<span class="string">'key'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage删除保存的数据</span><br><span class="line">sessionStorage.removeItem(<span class="string">'key'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage删除所有保存的数据</span><br><span class="line">sessionStorage.clear();</span><br></pre></td></tr></table></figure></p>
-
+<img src="/2018/08/28/Storage/程序员择偶标准.JPG" title="程序员择偶标准">
         </div>
 
         <blockquote class="post-copyright">
@@ -197,12 +199,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-08-27T17:13:09.586Z" itemprop="dateUpdated">2018-08-28 01:13:09</time>
+    Last updated: <time datetime="2018-08-27T17:40:39.800Z" itemprop="dateUpdated">2018-08-28 01:40:39</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/08/28/Storage/" target="_blank" rel="external">xujieyun.com/2018/08/28/Storage/</a>
+        最下方可以写作者留言，示例：<a href="/2018/08/28/Storage/" target="_blank" rel="external">xujieyun.com/2018/08/28/Storage/</a>
         
     </div>
     
@@ -276,7 +278,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/28/joke1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">百思不得其姐</h4>
+      </a>
+    </div>
   
 
   

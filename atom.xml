@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xujieyun.com/"/>
-  <updated>2018-08-27T17:13:09.586Z</updated>
+  <updated>2018-08-27T17:47:48.164Z</updated>
   <id>xujieyun.com/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>百思不得其姐</title>
+    <link href="xujieyun.com/2018/08/28/joke1/"/>
+    <id>xujieyun.com/2018/08/28/joke1/</id>
+    <published>2018-08-27T17:44:14.000Z</published>
+    <updated>2018-08-27T17:47:48.164Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2018/08/28/joke1/辞职信.JPG"><img src="/2018/08/28/joke1/新词汇.JPG"><img src="/2018/08/28/joke1/女生大学1.JPG"><img src="/2018/08/28/joke1/女生大学2.JPG"><img src="/2018/08/28/joke1/女生大学3.JPG"><img src="/2018/08/28/joke1/女生大学4.JPG"><img src="/2018/08/28/joke1/女生大学5.JPG"><img src="/2018/08/28/joke1/女生大学6.JPG"><img src="/2018/08/28/joke1/女生大学7.JPG">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/2018/08/28/joke1/辞职信.JPG&quot;&gt;
+&lt;img src=&quot;/2018/08/28/joke1/新词汇.JPG&quot;&gt;
+&lt;img src=&quot;/2018/08/28/joke1/女生大学1.JPG&quot;&gt;
+&lt;img src=&quot;/2018/08/28/jo
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Storage 进行页面缓存</title>
     <link href="xujieyun.com/2018/08/28/Storage/"/>
     <id>xujieyun.com/2018/08/28/Storage/</id>
     <published>2018-08-27T17:04:06.000Z</published>
-    <updated>2018-08-27T17:13:09.586Z</updated>
+    <updated>2018-08-27T17:40:39.800Z</updated>
     
-    <content type="html"><![CDATA[<p>sessionStorage 属性允许你访问一个 session Storage 对象。它与 localStorage 相似，不同之处在于 localStorage 里面存储的数据没有过期时间设置，而存储在 sessionStorage 里面的数据在页面会话结束时会被清除。页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。在新标签或窗口打开一个页面会初始化一个新的会话，这点和 session cookies 的运行方式不同。<br>应该注意的是，无论是 localStorage 还是 sessionStorage 中保存的数据都仅限于该页面的协议。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 保存数据到sessionStorage</span><br><span class="line">sessionStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage获取数据</span><br><span class="line">var data = sessionStorage.getItem(<span class="string">'key'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage删除保存的数据</span><br><span class="line">sessionStorage.removeItem(<span class="string">'key'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage删除所有保存的数据</span><br><span class="line">sessionStorage.clear();</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<p>sessionStorage 属性允许你访问一个 session Storage 对象。它与 localStorage 相似，不同之处在于 localStorage 里面存储的数据没有过期时间设置，而存储在 sessionStorage 里面的数据在页面会话结束时会被清除。页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。在新标签或窗口打开一个页面会初始化一个新的会话，这点和 session cookies 的运行方式不同。<br>应该注意的是，无论是 localStorage 还是 sessionStorage 中保存的数据都仅限于该页面的协议。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 保存数据到sessionStorage</span><br><span class="line">sessionStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage获取数据</span><br><span class="line">var data = sessionStorage.getItem(<span class="string">'key'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage删除保存的数据</span><br><span class="line">sessionStorage.removeItem(<span class="string">'key'</span>);</span><br><span class="line"></span><br><span class="line">// 从sessionStorage删除所有保存的数据</span><br><span class="line">sessionStorage.clear();</span><br></pre></td></tr></table></figure></p><img src="/2018/08/28/Storage/程序员择偶标准.JPG" title="程序员择偶标准">]]></content>
     
     <summary type="html">
     
