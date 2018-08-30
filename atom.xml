@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xujieyun.com/"/>
-  <updated>2018-08-30T15:20:36.718Z</updated>
+  <updated>2018-08-30T16:36:25.815Z</updated>
   <id>xujieyun.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>上传本地代码及更新代码到GitHub教程</title>
+    <link href="xujieyun.com/2018/08/31/%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%8F%8A%E6%9B%B4%E6%96%B0%E4%BB%A3%E7%A0%81%E5%88%B0GitHub%E6%95%99%E7%A8%8B/"/>
+    <id>xujieyun.com/2018/08/31/上传本地代码及更新代码到GitHub教程/</id>
+    <published>2018-08-30T16:12:38.000Z</published>
+    <updated>2018-08-30T16:36:25.815Z</updated>
+    
+    <content type="html"><![CDATA[<p>上传本地代码<br>配置信息<br>$ git config –global user.name”xujieyun”<br>$ git config –global user.email “<a href="mailto:203661771@qq.com" target="_blank" rel="noopener">203661771@qq.com</a>“</p><p>第一步：</p><p>去github上创建自己的Repository，</p><p>第二步：</p><p>echo “# Test” &gt;&gt; README.md</p><p>第三步：建立git仓库(这个时候会出现一个master，也就是主仓库)</p><p>git init</p><p>第四步：将项目的所有文件添加到仓库中</p><p>git add .</p><p>第五步：</p><p>git add README.md</p><p>第六步：提交到仓库</p><p>git commit -m “注释语句”</p><p>第七步：将本地的仓库关联到GitHub，后面的https改成刚刚自己的地址，上面的红框处</p><p>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xujieyun/save.git</p><p>第八步：上传github之前pull一下</p><p>git pull origin master</p><p>第九步：上传代码到GitHub远程仓库</p><p>git push -u origin master</p><p>中间可能会让你输入Username和Password，你只要输入github的账号和密码就行了。执行完后，如果没有异常，等待执行完就上传成功了。<br>更新代码<br>第一步：查看当前的git仓库状态，可以使用git status</p><p>git status</p><p>第二步：更新全部</p><p>git add *</p><p>第三步：接着输入git commit -m “更新说明”</p><p>git commit -m “更新说明”</p><p>第四步：先git pull,拉取当前分支最新代码</p><p>git pull</p><p>第五步：push到远程master分支上</p><p>git push origin master</p><p>不出意外，打开GitHub已经同步了</p><p>其他指令：<br>查看本地分支 git branch<br>查看远程仓库 git remote<br>查看远程仓库信息 git remote show origin(对应名称) </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上传本地代码&lt;br&gt;配置信息&lt;br&gt;$ git config –global user.name”xujieyun”&lt;br&gt;$ git config –global user.email “&lt;a href=&quot;mailto:203661771@qq.com&quot; target=&quot;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>test</title>
