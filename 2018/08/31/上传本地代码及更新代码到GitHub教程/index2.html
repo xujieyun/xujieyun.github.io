@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萌宠世界 - 虚拟宠物社区</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .user-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ffcc00;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        nav {
+            background: #4a4a8c;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            background: #6a6ab3;
+        }
+        
+        .main-content {
+            display: flex;
+            min-height: 600px;
+        }
+        
+        .pet-area {
+            flex: 3;
+            padding: 20px;
+            background: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px dashed #ccc;
+        }
+        
+        .pet-container {
+            width: 300px;
+            height: 300px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pet {
+            width: 200px;
+            height: 200px;
+            background: #ffcc00;
+            border-radius: 50%;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pet::before, .pet::after {
+            content: '';
+            position: absolute;
+            background: #333;
+            border-radius: 50%;
+        }
+        
+        .pet::before {
+            width: 30px;
+            height: 40px;
+            top: 60px;
+            left: 50px;
+        }
+        
+        .pet::after {
+            width: 30px;
+            height: 40px;
+            top: 60px;
+            right: 50px;
+        }
+        
+        .pet-mouth {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            background: #ff6666;
+            border-radius: 0 0 30px 30px;
+            bottom: 50px;
+            left: 70px;
+        }
+        
+        .pet-status {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .status-bar {
+            width: 120px;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .status-fill {
+            height: 100%;
+            border-radius: 10px;
+        }
+        
+        .hunger .status-fill {
+            background: #ff9966;
+            width: 70%;
+        }
+        
+        .happiness .status-fill {
+            background: #66ccff;
+            width: 85%;
+        }
+        
+        .health .status-fill {
+            background: #99ff99;
+            width: 90%;
+        }
+        
+        .pet-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            padding: 10px 15px;
+            background: #4a4a8c;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .action-btn:hover {
+            background: #6a6ab3;
+        }
+        
+        .community-area {
+            flex: 2;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #4a4a8c;
+            border-bottom: 2px solid #4a4a8c;
+            padding-bottom: 5px;
+        }
+        
+        .friends-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        .friend-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .friend-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ff9966;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .friend-info {
+            flex: 1;
+        }
+        
+        .friend-name {
+            font-weight: bold;
+        }
+        
+        .friend-status {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .community-events {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .event-item {
+            padding: 10px;
+            border-left: 4px solid #4a4a8c;
+            margin-bottom: 10px;
+            background: #f0f0f0;
+        }
+        
+        .chat-area {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chat-messages {
+            height: 150px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+        .message {
+            margin-bottom: 8px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .message.self {
+            background: #e3f2fd;
+            margin-left: auto;
+        }
+        
+        .message.friend {
+            background: #f5f5f5;
+        }
+        
+        .chat-input {
+            display: flex;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px 0 0 20px;
+        }
+        
+        .chat-input button {
+            padding: 10px 15px;
+            background: #4a4a8c;
+            color: white;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+        }
+        
+        footer {
+            background: #4a4a8c;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .pet-area {
+                border-right: none;
+                border-bottom: 2px dashed #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">萌宠世界</div>
+            <p>与您的虚拟宠物一起探索精彩社区！</p>
+            <div class="user-info">
+                <div class="user-avatar">用户</div>
+                <div>
+                    <div>等级: 15</div>
+                    <div>金币: 2,580</div>
+                </div>
+            </div>
+        </header>
+        
+        <nav>
+            <a href="#" class="active">宠物家园</a>
+            <a href="#">社区广场</a>
+            <a href="#">好友列表</a>
+            <a href="#">宠物商店</a>
+            <a href="#">任务中心</a>
+            <a href="#">设置</a>
+        </nav>
+        
+        <div class="main-content">
+            <div class="pet-area">
+                <div class="pet-container">
+                    <div class="pet">
+                        <div class="pet-mouth"></div>
+                    </div>
+                </div>
+                
+                <div class="pet-info">
+                    <h2>小黄 (等级 5)</h2>
+                    <p>品种: 快乐猫 | 心情: 开心</p>
+                </div>
+                
+                <div class="pet-status">
+                    <div class="status hunger">
+                        <div>饥饿度</div>
+                        <div class="status-bar">
+                            <div class="status-fill"></div>
+                        </div>
+                    </div>
+                    <div class="status happiness">
+                        <div>快乐度</div>
+                        <div class="status-bar">
+                            <div class="status-fill"></div>
+                        </div>
+                    </div>
+                    <div class="status health">
+                        <div>健康值</div>
+                        <div class="status-bar">
+                            <div class="status-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pet-actions">
+                    <button class="action-btn">喂食</button>
+                    <button class="action-btn">玩耍</button>
+                    <button class="action-btn">洗澡</button>
+                    <button class="action-btn">治疗</button>
+                    <button class="action-btn">装扮</button>
+                    <button class="action-btn">外出</button>
+                </div>
+            </div>
+            
+            <div class="community-area">
+                <h2 class="section-title">社区互动</h2>
+                
+                <div class="friends-list">
+                    <h3>在线好友 (3/15)</h3>
+                    <div class="friend-item">
+                        <div class="friend-avatar">A</div>
+                        <div class="friend-info">
+                            <div class="friend-name">Alice</div>
+                            <div class="friend-status">正在社区广场游玩</div>
+                        </div>
+                    </div>
+                    <div class="friend-item">
+                        <div class="friend-avatar">B</div>
+                        <div class="friend-info">
+                            <div class="friend-name">Bob</div>
+                            <div class="friend-status">宠物在比赛中</div>
+                        </div>
+                    </div>
+                    <div class="friend-item">
+                        <div class="friend-avatar">C</div>
+                        <div class="friend-info">
+                            <div class="friend-name">Cathy</div>
+                            <div class="friend-status">刚刚登录</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="community-events">
+                    <h3>社区活动</h3>
+                    <div class="event-item">
+                        <div>宠物选美大赛 - 明天下午3点开始</div>
+                    </div>
+                    <div class="event-item">
+                        <div>新服装上架 - 限时8折优惠</div>
+                    </div>
+                    <div class="event-item">
+                        <div>每日登录奖励翻倍活动进行中</div>
+                    </div>
+                </div>
+                
+                <div class="chat-area">
+                    <h3>好友聊天</h3>
+                    <div class="chat-messages">
+                        <div class="message friend">
+                            <strong>Alice:</strong> 你的宠物好可爱啊！
+                        </div>
+                        <div class="message self">
+                            <strong>我:</strong> 谢谢！我刚给它买了新衣服
+                        </div>
+                        <div class="message friend">
+                            <strong>Alice:</strong> 等会一起去社区广场玩吗？
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="输入消息...">
+                        <button>发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>萌宠世界 &copy; 2023 - 虚拟宠物社区互动平台 | 当前在线用户: 1,258</p>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的交互功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 宠物浮动动画
+            const pet = document.querySelector('.pet');
+            
+            // 按钮点击效果
+            const actionButtons = document.querySelectorAll('.action-btn');
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.textContent;
+                    alert(`执行操作: ${action}`);
+                    
+                    // 简单的心情变化动画
+                    pet.style.animation = 'none';
+                    setTimeout(() => {
+                        pet.style.animation = 'float 3s ease-in-out infinite';
+                    }, 10);
+                });
+            });
+            
+            // 发送消息功能
+            const chatInput = document.querySelector('.chat-input input');
+            const chatButton = document.querySelector('.chat-input button');
+            const chatMessages = document.querySelector('.chat-messages');
+            
+            chatButton.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    const messageElement = document.createElement('div');
+                    messageElement.className = 'message self';
+                    messageElement.innerHTML = `<strong>我:</strong> ${message}`;
+                    chatMessages.appendChild(messageElement);
+                    chatInput.value = '';
+                    
+                    // 滚动到底部
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // 模拟回复
+                    setTimeout(() => {
+                        const replies = [
+                            "听起来不错！",
+                            "我的宠物也想参加！",
+                            "等会见！",
+                            "哈哈，真好玩！"
+                        ];
+                        const randomReply = replies[Math.floor(Math.random() * replies.length)];
+                        
+                        const replyElement = document.createElement('div');
+                        replyElement.className = 'message friend';
+                        replyElement.innerHTML = `<strong>Alice:</strong> ${randomReply}`;
+                        chatMessages.appendChild(replyElement);
+                        
+                        // 滚动到底部
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
